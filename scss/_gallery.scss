@@ -1,0 +1,179 @@
+/* Gallery Filter */
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 10%;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+    scroll-margin-top: 100px; /* Precise landing offset */
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transform: translateY(0) scale(1);
+}
+
+.filter-btn:hover {
+    background: rgba(94, 53, 177, 0.2);
+    border-color: var(--accent-color);
+    box-shadow: var(--accent-glow);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.filter-btn:active {
+    transform: translateY(-1px) scale(0.95);
+}
+
+.filter-btn.active {
+    background: rgba(94, 53, 177, 0.6);
+    border-color: var(--accent-color);
+    box-shadow: var(--accent-glow);
+}
+
+/* Gallery Section & Grid */
+.gallery-section {
+    padding: 0 5% 5rem;
+    min-height: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* ทำให้ทุกกล่องเป็นสี่เหลี่ยม */
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:hover {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4); /* Stronger glow radius and opacity */
+    }
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+.gallery-item.fade-in {
+    animation: fadeInScale 0.5s forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+.item-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    --poster-color: transparent;
+}
+
+.gallery-img, .gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.item-inner:hover .gallery-img, .item-inner:hover .gallery-video {
+    transform: scale(1.1);
+}
+
+.item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 1.5rem 1.2rem; /* Reduced padding for a more compact look */
+    background: linear-gradient(to top, 
+        rgba(13,13,16,1) 0%, 
+        rgba(13,13,16,0.95) 50%, 
+        transparent 100%);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    /* Hidden extension to prevent gap during bounce animation */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: rgba(13,13,16,1);
+    }
+}
+
+.item-inner:hover .item-overlay {
+    transform: translateY(0);
+}
+
+.item-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.1rem;
+    color: var(--text-color);
+}
+
+.item-overlay p {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0; /* Removed margin when no button exists */
+}
+
+.view-btn {
+    display: inline-block;
+    margin-top: 1rem; /* Added margin here instead of on p */
+    padding: 0.5rem 1.2rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: all 0.3s ease;
+    pointer-events: auto; /* Enable clicks */
+    border: 1px solid transparent;
+}
+
+.view-btn:hover {
+    background: transparent;
+    border-color: var(--accent-color);
+    box-shadow: var(--accent-glow);
+    transform: translateY(-2px);
+}

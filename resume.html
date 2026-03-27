@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Punika</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ---- Resume Page Styles ---- */
+        .resume-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 5% 6rem;
+        }
+
+        /* Header card */
+        .resume-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .resume-header-text { flex: 1; }
+        .resume-eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--secondary-glow);
+            margin-bottom: 0.5rem;
+        }
+        .resume-name {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+            color: var(--text-color);
+        }
+        .resume-role {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+        }
+        .resume-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 16px;
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+
+        /* Section row (label | content) */
+        .resume-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            align-items: start;
+        }
+        .resume-row:last-child { border-bottom: none; }
+
+        .resume-label {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-color);
+            opacity: 0.85;
+            padding-top: 2px;
+        }
+
+        .resume-body { color: #bbb; font-size: 1rem; line-height: 1.75; }
+
+        /* Contact links */
+        .resume-contact-list { list-style: none; padding: 0; }
+        .resume-contact-list li {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 0.6rem; font-size: 0.95rem;
+        }
+        .resume-contact-list svg {
+            color: var(--accent-color);
+            width: 16px; height: 16px; flex-shrink: 0;
+        }
+        .resume-contact-list a { color: #bbb; text-decoration: none; }
+        .resume-contact-list a:hover { color: var(--secondary-glow); }
+
+        /* Skills list */
+        .resume-skill-list { list-style: none; padding: 0; margin: 0; }
+        .resume-skill-list li {
+            display: flex; align-items: flex-start; gap: 10px;
+            margin-bottom: 0.45rem; font-size: 0.97rem; color: #bbb;
+        }
+        .resume-skill-list li::before {
+            content: '▸'; color: var(--accent-color); flex-shrink: 0; margin-top: 1px;
+        }
+
+        /* Sub-heading inside content */
+        .resume-sub {
+            font-family: var(--font-heading);
+            font-size: 1rem; font-weight: 600;
+            color: var(--text-color); margin-bottom: 0.15rem;
+        }
+        .resume-sub-detail { font-size: 0.9rem; color: #777; margin-bottom: 0.1rem; }
+
+        /* Projects mini block */
+        .resume-project { margin-bottom: 1.8rem; }
+        .resume-project:last-child { margin-bottom: 0; }
+        .resume-project-title {
+            font-family: var(--font-heading);
+            font-size: 1rem; font-weight: 700;
+            color: var(--text-color); margin-bottom: 0.1rem;
+        }
+        .resume-project-meta {
+            font-size: 0.82rem; color: var(--secondary-glow);
+            letter-spacing: 1px; margin-bottom: 0.6rem; font-style: italic;
+        }
+        .resume-project ul { padding: 0; list-style: none; margin: 0; }
+        .resume-project ul li {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: 0.93rem; color: #999; margin-bottom: 0.35rem;
+        }
+        .resume-project ul li::before {
+            content: '•'; color: var(--accent-color); flex-shrink: 0;
+        }
+
+        .resume-cta { text-align: center; padding: 4rem 0 2rem; }
+
+        @media (max-width: 640px) {
+            .resume-header { flex-direction: column-reverse; gap: 1.5rem; }
+            .resume-photo { width: 90px; height: 90px; }
+            .resume-row { grid-template-columns: 1fr; gap: 0.5rem; }
+            .resume-label { opacity: 0.6; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo interactive">
+            <svg viewBox="0 0 260 200" width="65" height="50" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
+                <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="logo-ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none" stroke="var(--text-color)"
+                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+                <path d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112"
+                    fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125" fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none" stroke="var(--text-color)"
+                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="logo-tail-group">
+                    <path d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none" stroke="var(--text-color)"
+                        stroke-width="5" stroke-linecap="round" />
+                    <path d="M 190 120 L 220 90" fill="none" stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" />
+                    <path d="M 220 90 Q 240 70 225 60 Q 205 70 220 90" fill="var(--accent-color)" />
+                </g>
+            </svg>
+        </a>
+        <div class="hamburger interactive">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home" class="interactive">Home</a></li>
+            <li><a href="index.html#about" class="interactive">About me</a></li>
+            <li><a href="index.html#gallery-filter" class="interactive">Artwork</a></li>
+            <li><a href="projects.html" class="interactive">Projects</a></li>
+            <li><a href="resume.html" class="interactive active">Resume</a></li>
+            <li><a href="index.html#contact" class="interactive">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Cat Loading Screen -->
+    <div id="loader">
+        <div class="cat-sketch">
+            <svg viewBox="0 0 200 200" width="150" height="150" xmlns="http://www.w3.org/2000/svg" class="cat-svg">
+                <path class="draw-line head"
+                    d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="draw-line ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+                <path class="draw-line face"
+                    d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112" fill="none"
+                    stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="draw-line whiskers" d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path class="draw-line whiskers" d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125" fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path class="draw-line body" d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="loader-tail-group">
+                    <path class="draw-tail tail" d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none"
+                        stroke="var(--text-color)" stroke-width="5" stroke-linecap="round" />
+                    <g class="brush-shape">
+                        <path class="draw-line brush-handle" d="M 190 120 L 220 90" fill="none" stroke="var(--text-color)" stroke-width="3" />
+                        <path class="draw-line brush-hairs-solid" d="M 220 90 Q 240 70 225 60 Q 205 70 220 90" fill="none" stroke="var(--accent-color)" stroke-width="1.5" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="loading-text">Loading Resume...</div>
+    </div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <main id="main-content">
+        <section class="hero" style="min-height: 0; padding: 8rem 10% 1rem;">
+            <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">Resume</h1>
+            <p class="hero-subtitle">Punika Suwansaart</p>
+            <p class="hero-subtitle" style="font-size: 1rem; letter-spacing: 3px; color: #666; margin-top: 0.4rem;">Artist · Creative Media &amp; Digital Technology</p>
+        </section>
+
+        <div class="resume-page">
+
+            <!-- Contact -->
+            <div class="resume-row">
+                <div class="resume-label">Contact</div>
+                <div class="resume-body">
+                    <ul class="resume-contact-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <a href="mailto:6711610018@psu.ac.th" class="interactive">6711610018@psu.ac.th</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <a href="tel:0929251348" class="interactive">092-9251348</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Objective -->
+            <div class="resume-row">
+                <div class="resume-label">Objective</div>
+                <div class="resume-body">
+                    Passionate 2D/3D Artist skilled in 3D modeling, 2D illustration, and animation. With a strong eye for aesthetics and creativity, eager to collaborate and contribute to bringing creative ideas to life.
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="resume-row">
+                <div class="resume-label">Education</div>
+                <div class="resume-body">
+                    <p class="resume-sub">Prince of Songkla University</p>
+                    <p class="resume-sub-detail">Bachelor of Science, Major in Creative Media and Digital Technology</p>
+                    <p class="resume-sub-detail">Expected to graduate in 2027</p>
+                    <p class="resume-sub-detail" style="margin-top:0.4rem; color: var(--secondary-glow);">GPAX : 3.65</p>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="resume-row">
+                <div class="resume-label">Skills</div>
+                <div class="resume-body">
+                    <ul class="resume-skill-list">
+                        <li>Creativity</li>
+                        <li>Management Skills</li>
+                        <li>Critical Thinking</li>
+                        <li>Great drawing / painting skills</li>
+                        <li>3D modeling sculpting skills</li>
+                        <li>Expert in Blender, Nomad, Maya, Zbrush, Substance 3D Painter, After Effects, Clip Studio, Photoshop, Lightroom</li>
+                        <li>Ability to Apply 2D/3D Skills in Game and Web Development with Programming Knowledge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Projects (condensed) -->
+            <div class="resume-row">
+                <div class="resume-label">Projects</div>
+                <div class="resume-body">
+
+                    <div class="resume-project">
+                        <p class="resume-project-title">CMDT Camp 4</p>
+                        <p class="resume-project-meta">PSU IIC · 2025</p>
+                        <ul>
+                            <li>Designed and created the main backdrop that represented the camp's theme and identity.</li>
+                            <li>Illustrated and prepared digital and hand-drawn elements for the final design.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project">
+                        <p class="resume-project-title">Mini Art Exhibition</p>
+                        <p class="resume-project-meta">The Story of Hat Yai · 2025</p>
+                        <ul>
+                            <li>At the photography festival, I am the owner of the work under the theme "Khao Kho Hong: A Place to Relax."</li>
+                            <li>My photographs feature both the scenery and the people, showing the happiness and the intention of those who come here.</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top:1rem; font-size:0.9rem; color:#666;">
+                        → <a href="projects.html" class="interactive" style="color: var(--secondary-glow); text-decoration:none;">View full project showcase</a>
+                    </p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo interactive">
+                    <svg viewBox="0 0 260 200" width="60" height="46" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none" stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none" stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                        <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                        <path d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112" fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <p class="footer-desc">Digital artisan blending code and traditional art to craft immersive, interactive experiences.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Sitemap</h4>
+                <ul>
+                    <li><a href="index.html#home" class="interactive">Home</a></li>
+                    <li><a href="index.html#about" class="interactive">About</a></li>
+                    <li><a href="projects.html" class="interactive">Projects</a></li>
+                    <li><a href="resume.html" class="interactive">Resume</a></li>
+                    <li><a href="index.html#contact" class="interactive">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <ul class="contact-info">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:6711610018@psu.ac.th" class="interactive">6711610018@psu.ac.th</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6 6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:0929251348" class="interactive">0929251348</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <a href="https://instagram.com/punikksuwansaart" target="_blank" class="interactive">Instagram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2026 Punika Suwansaart. All rights reserved.</p>
+        </div>
+    </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

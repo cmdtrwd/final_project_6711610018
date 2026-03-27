@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punika Portfolio</title>
+    <!-- CSS is expected in the local css/ folder to support Live Server -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo interactive">
+            <svg viewBox="0 0 260 200" width="65" height="50" xmlns="http://www.w3.org/2000/svg"
+                style="overflow: visible;">
+                <!-- Head & Ears -->
+                <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="logo-ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Eyes (blinking) -->
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+                <!-- Nose & Mouth -->
+                <path d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112"
+                    fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <!-- Whiskers -->
+                <path d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none" stroke="var(--text-color)"
+                    stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125" fill="none"
+                    stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <!-- Body -->
+                <path d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none" stroke="var(--text-color)"
+                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Tail & Pencil -->
+                <g class="logo-tail-group">
+                    <path d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none" stroke="var(--text-color)"
+                        stroke-width="5" stroke-linecap="round" />
+                    <!-- Larger Paintbrush shape -->
+                    <path d="M 190 120 L 220 90" fill="none" stroke="var(--text-color)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path d="M 220 90 Q 240 70 225 60 Q 205 70 220 90" fill="var(--accent-color)" />
+                </g>
+            </svg>
+        </a>
+        <div class="hamburger interactive">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="interactive">Home</a></li>
+            <li><a href="#about" class="interactive">About me</a></li>
+            <li><a href="#gallery-filter" class="interactive">Artwork</a></li>
+            <li><a href="projects.html" class="interactive">Projects</a></li>
+            <li><a href="resume.html" class="interactive">Resume</a></li>
+            <li><a href="#contact" class="interactive">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Cat Loading Screen -->
+    <div id="loader">
+        <div class="cat-sketch">
+            <svg viewBox="0 0 200 200" width="150" height="150" xmlns="http://www.w3.org/2000/svg" class="cat-svg">
+                <!-- Head & Ears -->
+                <path class="draw-line head"
+                    d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="loader-ears-group">
+                    <path class="draw-line ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                        stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+
+                <!-- Eyes (blinking) -->
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+
+                <!-- Nose & Mouth -->
+                <path class="draw-line face"
+                    d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112" fill="none"
+                    stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Whiskers -->
+                <path class="draw-line whiskers" d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none"
+                    stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path class="draw-line whiskers" d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125"
+                    fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+
+                <!-- Body -->
+                <path class="draw-line body" d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Tail & Pencil -->
+                <g class="loader-tail-group">
+                    <path class="draw-tail tail" d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none"
+                        stroke="var(--text-color)" stroke-width="5" stroke-linecap="round" />
+                    <!-- Larger Paintbrush shape -->
+                    <g class="brush-shape">
+                        <path class="draw-line brush-handle" d="M 190 120 L 220 90" fill="none"
+                            stroke="var(--text-color)" stroke-width="3" />
+                        <path class="draw-line brush-hairs-solid" d="M 220 90 Q 240 70 225 60 Q 205 70 220 90"
+                            fill="none" stroke="var(--accent-color)" stroke-width="1.5" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Main Content wrapper -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1 class="hero-title">Punika Suwansaart</h1>
+            <p class="hero-subtitle">Portfolio for Responsive Web Design</p>
+            <div class="scroll-indicator">↓ Scroll to explore</div>
+        </section>
+        
+        <!-- Gallery Showcase Navigation -->
+        <nav id="gallery-filter" class="gallery-filter interactive">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="3d">3D Models</button>
+            <button class="filter-btn" data-filter="art">Digital Art & Animation</button>
+            <button class="filter-btn" data-filter="photo">Photography</button>
+            <button class="filter-btn" data-filter="interactive">Interactive</button>
+        </nav>
+
+        <!-- Unified Gallery Grid -->
+        <section id="gallery" class="gallery-section">
+            <div class="gallery-grid">
+                <!-- 3D Model Item -->
+                <div class="gallery-item" data-category="3d">
+                    <div class="item-inner">
+                        <img src="images/cat.png" alt="cat" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Cat</h3>
+                            <p>3D Model</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Art Item (Now Video) -->
+                <div class="gallery-item" data-category="art">
+                    <div class="item-inner artwork">
+                         <img src="images/Ani.png" alt="cat" class="gallery-img">
+                            class="gallery-video"></video>
+                        <div class="item-overlay">
+                            <h3>Khamwan</h3>
+                            <p>2D Animation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Item (Tall) -->
+                <div class="gallery-item tall" data-category="photo">
+                    <div class="item-inner artwork">
+                        <img src="images/33.png" alt="Urban Decay" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Khao Kho Hong</h3>
+                            <p>Photography</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Item (Wide) -->
+                <div class="gallery-item wide" data-category="interactive">
+                    <div class="item-inner artwork interactive-proj">
+                        <img src="images/viandai-box.png" alt="Cyber Runner" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>VIANPAI</h3>
+                            <p>Website From Visaual Studio Code</p>
+                            <a href="http://127.0.0.1:5500/index.html" class="view-btn interactive">Visit Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="art">
+                    <div class="item-inner artwork">
+                        <img src="images/deme.jpg" alt="Crimson Flame" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Crimson Flame</h3>
+                            <p>Digital Painting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="3d">
+                    <div class="item-inner">
+                        <img src="images/image1.png" alt="Human Face" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Human Face</h3>
+                            <p>3D Model</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Photography Item -->
+                <div class="gallery-item" data-category="photo">
+                    <div class="item-inner artwork">
+                        <img src="images/44.png" alt="Nature Bokeh" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Warm</h3>
+                            <p>Photography</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New 3D Model Item -->
+                <div class="gallery-item" data-category="3d">
+                    <div class="item-inner">
+                        <img src="images/2.jpg" alt="Gun" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Gun</h3>
+                            <p>3D Model</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <!-- รูป -->
+            <div class="about-image">
+                <img src="images/Punika-pic.jpg" alt="Punika Profile">
+            </div>
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a student at Prince of Songkla University with a passion for art that began in childhood. My
+                        work blends imagination and emotion across illustration, design, and digital media. This website
+                        is a space where I collect and share my creative journey, expressing ideas, stories, and
+                        perspectives through my work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Star Showcase -->
+        <section class="skills-showcase">
+            <div id="skills-container" class="skills-container">
+                <!-- Orbital Icons (Now with specific apps) -->
+                <div class="skills-orbital">
+                    <div class="skill-icon" data-name="Blender"><img src="images/Blender.png" alt="Blender"></div>
+                    <div class="skill-icon" data-name="Nomad Sculpt"><img src="images/nomad.jpg" alt="Nomad"></div>
+                    <div class="skill-icon" data-name="Maya"><img src="images/Maya.jpg" alt="Maya"></div>
+                    <div class="skill-icon" data-name="ZBrush"><img src="images/zbrush.jpg" alt="ZBrush"></div>
+                    <div class="skill-icon" data-name="Substance Painter"><img
+                            src="images/adobe-substance-3d-painter-icon-app-logo-editable-transparent-background-premium-social-media-design-for-digital-download-free-png.png"
+                            alt="Substance"></div>
+                    <div class="skill-icon" data-name="After Effects"><img src="images/After-Effects-Logo.png" alt="AE">
+                    </div>
+                    <div class="skill-icon" data-name="Clip Studio"><img src="images/clip.png" alt="CSP"></div>
+                    <div class="skill-icon" data-name="Photoshop"><img src="images/photoshop.png" alt="PS"></div>
+                    <div class="skill-icon" data-name="Lightroom"><img src="images/lightroom.png" alt="LR"></div>
+                    <div class="skill-icon" data-name="Unity"><img src="images/unity.png" alt="Unity"></div>
+                </div>
+
+                <!-- Central Star Trigger -->
+                <div id="skills-star" class="skills-star interactive">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <div class="star-glow"></div>
+                </div>
+
+                <p id="skills-hint" class="skills-hint">Tap the star to reveal skills</p>
+            </div>
+
+            <div id="skills-experience" class="skills-experience">
+                <p>Skilled in digital illustration, 3D modeling, game development, coding, and animation. I integrate
+                    these disciplines to create cohesive, interactive, and visually engaging experiences, blending
+                    creativity with technical execution.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2 class="contact-heading">Get In Touch</h2>
+            <div class="contact-hero-image-container">
+                <img src="images/nok.png" alt="Crimson Flame" class="gallery-img">
+            </div>
+            <p class="contact-description">I'm always open to new opportunities and collaborations. Let's create
+                something together!</p>
+            <div class="contact-container">
+                <div class="contact-details">
+                    <div class="contact-item interactive">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <a href="mailto:6711610018@psu.ac.th">6711610018@psu.ac.th</a>
+                    </div>
+                    <div class="contact-item interactive">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <a href="tel:0929251348">0929251348</a>
+                    </div>
+                    <div class="contact-item interactive">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <a href="https://instagram.com/punikksuwansaart" target="_blank">punikksuwansaart</a>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo interactive">
+                            <svg viewBox="0 0 260 200" width="60" height="46" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z"
+                                    fill="none" stroke="var(--text-color)" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                                <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                                <path
+                                    d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112"
+                                    fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <p class="footer-desc">Where code meets art, and ideas come to life.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Sitemap</h4>
+                        <ul>
+                            <li><a href="#home" class="interactive">Home</a></li>
+                            <li><a href="#about" class="interactive">About Me</a></li>
+                            <li><a href="projects.html" class="interactive">Projects</a></li>
+                            <li><a href="resume.html" class="interactive">Resume</a></li>
+                            <li><a href="#contact" class="interactive">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Get in Touch</h4>
+                        <ul class="contact-info">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <a href="mailto:6711610018@psu.ac.th" class="interactive">6711610018@psu.ac.th</a>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <a href="tel:0929251348" class="interactive">0929251348</a>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                                <a href="https://instagram.com/punikksuwansaart" target="_blank"
+                                    class="interactive">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 Punika Suwansaart. All rights reserved.</p>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js or Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

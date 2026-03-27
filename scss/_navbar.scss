@@ -1,0 +1,136 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    background: transparent;
+    padding: 1rem 2%;
+    transition: all 0.4s ease;
+
+    &.scrolled {
+        background: rgba(13, 13, 16, 0.85);
+        backdrop-filter: blur(12px);
+        padding: 0.8rem 2%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    svg {
+        overflow: visible;
+    }
+}
+
+/* Mobile Default Structure (Mobile First) */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1000;
+
+    span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    &.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    &.active span:nth-child(2) {
+        opacity: 0;
+    }
+    &.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Mobile Menu (Dropdown) */
+.nav-links {
+    position: absolute;
+    top: 4rem; // Moved up from 100% to be closer to logo
+    left: 0;
+    width: 100%;
+    background: rgba(13, 13, 16, 0.95); /* matching theme color */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Increased from 1.2rem */
+    padding: 1.5rem 0 2rem; // Reduced top padding from 2rem to 1.5rem
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Initially hidden */
+    transition: clip-path 0.4s ease-in-out;
+    list-style: none;
+
+    &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Revealed */
+    }
+
+    a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        /* Highlight underline */
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-glow);
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+        
+        &:hover {
+            color: var(--secondary-glow);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+    }
+}
+
+/* PC Media Query (min-width) */
+@include md {
+    .hamburger {
+        display: none; /* Hide hamburger on desktop */
+    }
+
+    .nav-links {
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        backdrop-filter: none;
+        width: auto;
+        padding: 0;
+        clip-path: none;
+        gap: 2.5rem; /* Significant breathing room for desktop */
+        
+        a {
+            font-size: 1rem;
+        }
+    }
+}

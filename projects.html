@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Punika</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo interactive">
+            <svg viewBox="0 0 260 200" width="65" height="50" xmlns="http://www.w3.org/2000/svg"
+                style="overflow: visible;">
+                <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="logo-ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+                <path d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112"
+                    fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none" stroke="var(--text-color)"
+                    stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125" fill="none"
+                    stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none" stroke="var(--text-color)"
+                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="logo-tail-group">
+                    <path d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none" stroke="var(--text-color)"
+                        stroke-width="5" stroke-linecap="round" />
+                    <path d="M 190 120 L 220 90" fill="none" stroke="var(--text-color)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path d="M 220 90 Q 240 70 225 60 Q 205 70 220 90" fill="var(--accent-color)" />
+                </g>
+            </svg>
+        </a>
+        <div class="hamburger interactive">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home" class="interactive">Home</a></li>
+            <li><a href="index.html#about" class="interactive">About me</a></li>
+            <li><a href="index.html#gallery-filter" class="interactive">Artwork</a></li>
+            <li><a href="projects.html" class="interactive active">Projects</a></li>
+            <li><a href="resume.html" class="interactive">Resume</a></li>
+            <li><a href="index.html#contact" class="interactive">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-trail"></div>
+
+    <!-- Cat Loading Screen -->
+    <div id="loader">
+        <div class="cat-sketch">
+            <svg viewBox="0 0 200 200" width="150" height="150" xmlns="http://www.w3.org/2000/svg" class="cat-svg">
+                <path class="draw-line head"
+                    d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="draw-line ears" d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="eyes">
+                    <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                    <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                </g>
+                <path class="draw-line face"
+                    d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112" fill="none"
+                    stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="draw-line whiskers" d="M 75 110 L 55 105 M 75 115 L 50 115 M 75 120 L 55 125" fill="none"
+                    stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path class="draw-line whiskers" d="M 125 110 L 145 105 M 125 115 L 150 115 M 125 120 L 145 125"
+                    fill="none" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" />
+                <path class="draw-line body" d="M 75 135 Q 50 180 80 190 L 120 190 Q 150 180 125 135" fill="none"
+                    stroke="var(--text-color)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <g class="loader-tail-group">
+                    <path class="draw-tail tail" d="M 130 170 Q 180 180 175 140 Q 170 100 190 120" fill="none"
+                        stroke="var(--text-color)" stroke-width="5" stroke-linecap="round" />
+                    <g class="brush-shape">
+                        <path class="draw-line brush-handle" d="M 190 120 L 220 90" fill="none"
+                            stroke="var(--text-color)" stroke-width="3" />
+                        <path class="draw-line brush-hairs-solid" d="M 220 90 Q 240 70 225 60 Q 205 70 220 90"
+                            fill="none" stroke="var(--accent-color)" stroke-width="1.5" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="loading-text">Loading Projects...</div>
+    </div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <main id="main-content">
+
+        <!-- Page Header -->
+        <section class="hero" style="min-height: 50vh; padding-bottom: 2rem;">
+            <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">Projects</h1>
+            <p class="hero-subtitle">University works, creative activities & digital experiments.</p>
+        </section>
+
+        <!-- Cinematic Project Showcase -->
+        <section class="project-hero-showcase">
+
+            <!-- Project 1: CMDT Camp 4 -->
+            <div class="showcase-item">
+                <div class="showcase-bg">
+                    <img src="images/CMDT_Camp4Backdrops.png" alt="CMDT Camp 4 Backdrop">
+                </div>
+                <div class="showcase-text">
+                    <span class="showcase-tag">Event Design · PSU Activity</span>
+                    <h2 class="showcase-title">CMDT Camp 4<br>Visual Design</h2>
+                    <p class="showcase-subtitle">
+                        Designed the key visual backdrops and stage graphics for CMDT Camp 4, a creative media and
+                        design
+                        camp organized at Prince of Songkla University. The project focused on building a cohesive
+                        visual
+                        identity that captured the camp's energetic and collaborative spirit — from main-stage banners
+                        to
+                        environmental signage.
+                    </p>
+                    <div class="showcase-meta">
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            2025
+                        </span>
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Prince of Songkla University
+                        </span>
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                            Team Activity
+                        </span>
+                    </div>
+                    <div class="showcase-tags">
+                        <span class="showcase-tag-chip">Event Branding</span>
+                        <span class="showcase-tag-chip">Graphic Design</span>
+                        <span class="showcase-tag-chip">Photoshop</span>
+                        <span class="showcase-tag-chip">Illustrator</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Responsive Portfolio (Final Project) -->
+            <div class="showcase-item">
+                <div class="showcase-bg">
+                    <img src="images/project.png" alt="Responsive Web Design Final"
+                        style="object-position: center 30%;">
+                </div>
+                <div class="showcase-text">
+                    <span class="showcase-tag">Photography · Mini Exhibition</span>
+                    <h2 class="showcase-title">Khao Kho Hong<br><span
+                            style="font-size:0.7em; font-weight:300; color: var(--secondary-glow);">The Place to
+                            Relax</span></h2>
+                    <p class="showcase-subtitle">
+                        A mini photography exhibition exploring the serene landscapes and natural beauty of
+                        Khao Kho Hong. Through a carefully curated series of photographs, this project captures
+                        the quiet moments, golden light, and peaceful atmosphere that make this place a true
+                        escape — inviting the viewer to slow down and breathe.
+                    </p>
+                    <div class="showcase-meta">
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            2025
+                        </span>
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Prince of Songkla University
+                        </span>
+                        <span class="showcase-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                                <circle cx="12" cy="13" r="4" />
+                            </svg>
+                            Photography Course
+                        </span>
+                    </div>
+                    <div class="showcase-tags">
+                        <span class="showcase-tag-chip">Photography</span>
+                        <span class="showcase-tag-chip">Exhibition</span>
+                        <span class="showcase-tag-chip">Lightroom</span>
+                        <span class="showcase-tag-chip">Nature</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- More Works Gallery -->
+        <section class="gallery-section" style="padding-top: 8rem;">
+            <h2
+                style="text-align:center; font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; color: #666; margin-bottom: 4rem;">
+                More Works</h2>
+            <div class="gallery-grid">
+                <!-- Project 1 -->
+                <div class="gallery-item wide">
+                    <div class="item-inner artwork">
+                        <img src="images/viandai-box.png" alt="Cyber Runner" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>VIANPAI Website</h3>
+                            <p>Interactive website project built with HTML, CSS & JavaScript.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="gallery-item">
+                    <div class="item-inner">
+                        <model-viewer src="models/cattest.glb" camera-controls disable-zoom interpolation-decay="200"
+                            camera-orbit="0deg 75deg auto" shadow-intensity="1" alt="3D Character"></model-viewer>
+                        <div class="item-overlay">
+                            <h3>Cat 3D Character</h3>
+                            <p>High-fidelity character sculpting and texturing in Blender.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="gallery-item">
+                    <div class="item-inner artwork">
+                        <video src="Videos/ไฟนอลพี่เนย2.mov" autoplay muted loop playsinline
+                            class="gallery-video"></video>
+                        <div class="item-overlay">
+                            <h3>Khamwan Animation</h3>
+                            <p>Cinematic 2D animation experiment with motion graphics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="gallery-item tall">
+                    <div class="item-inner artwork">
+                        <img src="images/22.jpeg" alt="Urban Study" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Khao Kho Hong</h3>
+                            <p>Architectural photography and post-processing series.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="gallery-item">
+                    <div class="item-inner artwork">
+                        <img src="images/deme.jpg" alt="Digital Portrait" class="gallery-img">
+                        <div class="item-overlay">
+                            <h3>Crimson Portrait</h3>
+                            <p>Illustrative digital painting exploring lighting and texture.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="gallery-item">
+                    <div class="item-inner">
+                        <model-viewer src="models/Untitled.glb" camera-controls disable-zoom interpolation-decay="200"
+                            camera-orbit="0deg 75deg auto" shadow-intensity="1" alt="Robot Model"></model-viewer>
+                        <div class="item-overlay">
+                            <h3>Human Face</h3>
+                            <p>3D model sculpting and materials study in Blender.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo interactive">
+                        <svg viewBox="0 0 260 200" width="60" height="46" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 60 100 Q 60 60 100 60 Q 140 60 140 100 Q 140 140 100 140 Q 60 140 60 100 Z"
+                                fill="none" stroke="var(--text-color)" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M 65 75 L 50 40 L 85 62 M 135 75 L 150 40 L 115 62" fill="none"
+                                stroke="var(--text-color)" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <circle cx="85" cy="95" r="4" fill="var(--text-color)" />
+                            <circle cx="115" cy="95" r="4" fill="var(--text-color)" />
+                            <path
+                                d="M 100 105 L 98 110 L 102 110 Z M 100 110 Q 95 115 90 112 M 100 110 Q 105 115 110 112"
+                                fill="none" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <p class="footer-desc">Digital artisan blending code and traditional art to craft immersive,
+                        interactive experiences.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Sitemap</h4>
+                    <ul>
+                        <li><a href="index.html#home" class="interactive">Home</a></li>
+                        <li><a href="index.html#about" class="interactive">About</a></li>
+                        <li><a href="projects.html" class="interactive">Projects</a></li>
+                        <li><a href="resume.html" class="interactive">Resume</a></li>
+                        <li><a href="index.html#contact" class="interactive">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <a href="mailto:6711610018@psu.ac.th" class="interactive">6711610018@psu.ac.th</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <a href="tel:0929251348" class="interactive">0929251348</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                            <a href="https://instagram.com/punikksuwansaart" target="_blank"
+                                class="interactive">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 Punika Suwansaart. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        // ---- Showcase: scroll-triggered reveal ----
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.querySelectorAll('.showcase-item').forEach(item => {
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 75%',
+                onEnter: () => item.classList.add('in-view'),
+            });
+
+            // Parallax on the background image
+            const bg = item.querySelector('.showcase-bg img');
+            if (bg) {
+                gsap.fromTo(bg,
+                    { yPercent: -8 }, // Very subtle high start
+                    {
+                        yPercent: 8, // Very subtle low end
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1.5, // Return to 1.5s lag for maximum premium smoothness
+                        }
+                    }
+                );
+            }
+        });
+    </script>
+
+</body>
+
+</html>
